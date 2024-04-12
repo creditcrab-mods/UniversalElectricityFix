@@ -35,4 +35,5 @@
  */
 dependencies {
     runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.5.4-GTNH:dev")
+    api files("build/libs/IC2Classic-1.7.10-1.2.3.jar")
 }
