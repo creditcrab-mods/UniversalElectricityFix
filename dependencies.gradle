@@ -36,4 +36,11 @@
 dependencies {
     runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.5.4-GTNH:dev")
     api files("build/libs/IC2Classic-1.7.10-1.2.3.jar")
+    api deobfCurse("cofh-core-69162:2388750")
+    runtimeOnlyNonPublishable("curse.maven:thermal-foundation-222880:2388752")
+    runtimeOnlyNonPublishable("curse.maven:thermal-expansion-69163:2388758")
+    runtimeOnlyNonPublishable("curse.maven:thermal-dynamics-227443:2388756")
+    runtimeOnlyNonPublishable("curse.maven:endercore-231868:4671288")
+    runtimeOnlyNonPublishable("curse.maven:ender-io-64578:4671445")
+    runtimeOnlyNonPublishable files("libs/basiccomponents-2.0.1.jar")
 }

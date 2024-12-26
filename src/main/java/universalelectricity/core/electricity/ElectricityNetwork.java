@@ -148,9 +148,9 @@ public class ElectricityNetwork implements IElectricityNetwork {
       ElectricityPack totalElectricity = new ElectricityPack(0.0D, 0.0D);
 
       try {
-         ElectricityPack e = (ElectricityPack)this.consumers.get(tileEntity);
+         ElectricityPack e = this.consumers.get(tileEntity);
          if(this.consumers.containsKey(tileEntity) && e != null) {
-            totalElectricity = this.getProduced(new TileEntity[0]);
+            totalElectricity = this.getProduced();
             if(totalElectricity.getWatts() > 0.0D) {
                ElectricityPack totalRequest = this.getRequestWithoutReduction();
                totalElectricity.amperes *= e.amperes / totalRequest.amperes;

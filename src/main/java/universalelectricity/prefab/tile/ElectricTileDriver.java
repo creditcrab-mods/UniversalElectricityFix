@@ -31,12 +31,12 @@ public class ElectricTileDriver {
         if (handler.isInvalid()) return false;
         Map<ForgeDirection, IElectricityNetwork> networks = getNetworks();
         Set<ForgeDirection> inputSides = new HashSet<>();
-        if (CompatibilityModule.canReceive(handler, ForgeDirection.UNKNOWN)) {
+
             inputSides = consume(networks);
-        }
-        if (CompatibilityModule.canExtract(handler, ForgeDirection.UNKNOWN)) {
+
+
             produce(networks, inputSides);
-        }
+
         return networks.size() > 0;
     }
 
@@ -88,7 +88,7 @@ public class ElectricTileDriver {
 
     public Map<ForgeDirection, IElectricityNetwork> getNetworks() {
         Map<ForgeDirection, IElectricityNetwork> networks = new HashMap<>();
-        
+
         for(ForgeDirection dir : ForgeDirection.values()) {
             if (CompatibilityModule.canReceive(handler, dir) || CompatibilityModule.canExtract(handler, dir)) {
                 Vector3 position = new Vector3(handler);

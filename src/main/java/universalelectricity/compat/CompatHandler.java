@@ -19,6 +19,9 @@ public class CompatHandler {
         if (UniversalElectricity.isIC2CompatActive()) {
             CompatibilityModule.register(new IC2CompatModule());
         }
+        if (UniversalElectricity.isRFCompatActive()){
+            CompatibilityModule.register(new RFCompatModule());
+        }
     }
 
     public static void tick() {
@@ -37,5 +40,5 @@ public class CompatHandler {
             ticklist.put(tile, new ElectricTileDriver(tile));
         }
     }
-    
+
 }

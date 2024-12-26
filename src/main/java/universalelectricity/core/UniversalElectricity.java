@@ -10,6 +10,7 @@ import java.io.File;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.common.config.Configuration;
+import org.lwjgl.Sys;
 import universalelectricity.api.CompatibilityType;
 import universalelectricity.compat.CompatHandler;
 import universalelectricity.core.proxy.CommonProxy;
@@ -17,13 +18,17 @@ import universalelectricity.core.proxy.CommonProxy;
 @Mod(modid = "universalelectricity", name = "Universal Electricity", version = UniversalElectricity.VERSION)
 public class UniversalElectricity {
 
-   public static final String VERSION = "{VERSION}";
+   public static final String VERSION = "PissUp";
+
+   public static final String compatCategory = "Compatibility";
    public static final Configuration CONFIGURATION = new Configuration(new File(Loader.instance().getConfigDir(), "UniversalElectricity.cfg"));
    public static double UE_IC2_RATIO = CompatibilityType.INDUSTRIALCRAFT.reciprocal_ratio;
    public static double UE_RF_RATIO = CompatibilityType.REDSTONE_FLUX.reciprocal_ratio;
    public static boolean isVoltageSensitive = true;
    public static boolean isNetworkActive = true;
-   public static boolean ic2Compat = false;
+   public static boolean ic2Compat = true;
+
+   public static boolean rfCompat = true;
    public static final Material machine = new Material(MapColor.ironColor);
    @SidedProxy(modId = "universalelectricity", serverSide = "universalelectricity.core.proxy.CommonProxy", clientSide = "universalelectricity.core.proxy.ClientProxy")
    public static CommonProxy proxy;
@@ -31,9 +36,10 @@ public class UniversalElectricity {
    @Mod.EventHandler
    public void preInit(FMLPreInitializationEvent e) {
       CONFIGURATION.load();
-      isVoltageSensitive = CONFIGURATION.get("Compatiblity", "Is Voltage Sensitive", isVoltageSensitive).getBoolean(isVoltageSensitive);
-      isNetworkActive = CONFIGURATION.get("Compatiblity", "Is Network Active", isNetworkActive).getBoolean(isNetworkActive);
-      ic2Compat = CONFIGURATION.get("Compatiblity", "Compatiblity with IC2 tiles and items", ic2Compat).getBoolean(ic2Compat);
+      isVoltageSensitive = CONFIGURATION.get(compatCategory, "Is Voltage Sensitive", isVoltageSensitive).getBoolean(isVoltageSensitive);
+      isNetworkActive = CONFIGURATION.get(compatCategory, "Is Network Active", isNetworkActive).getBoolean(isNetworkActive);
+      ic2Compat = CONFIGURATION.get(compatCategory, "Compatiblity with IC2 tiles and items", ic2Compat).getBoolean(ic2Compat);
+      rfCompat = CONFIGURATION.get(compatCategory,"Compatibility with Redstone Flux",rfCompat).getBoolean(rfCompat);
       CONFIGURATION.save();
    }
 
@@ -45,6 +51,9 @@ public class UniversalElectricity {
 
    public static boolean isIC2CompatActive() {
       return ic2Compat && Loader.isModLoaded("IC2");
+   }
+   public static boolean isRFCompatActive(){
+       return rfCompat && Loader.isModLoaded("CoFHCore");
    }
 
 }
