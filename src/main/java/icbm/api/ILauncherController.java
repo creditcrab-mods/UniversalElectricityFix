@@ -9,7 +9,7 @@ import universalelectricity.core.vector.Vector3;
 import universalelectricity.prefab.implement.IRedstoneReceptor;
 
 public interface ILauncherController
-    extends IElectricityStorage, IRedstoneReceptor, IBlockFrequency {
+    extends IRedstoneReceptor, IBlockFrequency {
     LauncherType getLauncherType();
 
     void launch();

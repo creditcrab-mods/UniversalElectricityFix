@@ -1,5 +1,6 @@
 package universalelectricity.core;
 
+import universalelectricity.Tags;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -15,10 +16,10 @@ import universalelectricity.api.CompatibilityType;
 import universalelectricity.compat.CompatHandler;
 import universalelectricity.core.proxy.CommonProxy;
 
-@Mod(modid = "universalelectricity", name = "Universal Electricity", version = UniversalElectricity.VERSION)
+@Mod(modid = "universalelectricity", name = "Universal Electricity", version = Tags.VERSION)
 public class UniversalElectricity {
 
-   public static final String VERSION = "PissUp";
+   public static final String VERSION = Tags.VERSION;
 
    public static final String compatCategory = "Compatibility";
    public static final Configuration CONFIGURATION = new Configuration(new File(Loader.instance().getConfigDir(), "UniversalElectricity.cfg"));

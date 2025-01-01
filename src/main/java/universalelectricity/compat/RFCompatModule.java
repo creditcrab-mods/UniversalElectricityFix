@@ -118,12 +118,12 @@ public class RFCompatModule extends CompatibilityModule {
 
     @Override
     public double doGetInputVoltage(Object handler) {
-        return 1;
+        return 0;
     }
 
     @Override
     public double doGetOutputVoltage(Object handler) {
-        return 1;
+        return 0;
     }
 
     @Override
