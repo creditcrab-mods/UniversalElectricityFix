@@ -10,9 +10,9 @@ import net.minecraft.nbt.NBTTagLong;
 /**
  * Can be used internally for IEnergyInterface blocks. This is optional and should be used for
  * ease of use purposes.
- * 
+ *
  * @author Calclavia, Based on Thermal Expansion
- * 
+ *
  */
 public class EnergyStorageHandler
 {
@@ -50,7 +50,7 @@ public class EnergyStorageHandler
 
 	public EnergyStorageHandler readFromNBT(NBTTagCompound nbt)
     {
-        NBTBase energyTag = nbt.getTag("energy");
+        NBTBase energyTag = nbt.getTag("cofh/api/energy");
         if (energyTag instanceof NBTTagDouble)
         {
             this.energy = ((NBTTagDouble) energyTag).func_150286_g();
@@ -72,7 +72,7 @@ public class EnergyStorageHandler
 
 	public NBTTagCompound writeToNBT(NBTTagCompound nbt)
 	{
-		nbt.setDouble("energy", this.getEnergy());
+		nbt.setDouble("cofh/api/energy", this.getEnergy());
 		return nbt;
 	}
 
@@ -116,7 +116,7 @@ public class EnergyStorageHandler
 	 * This function is included to allow for server -> client sync. Do not call this externally to
 	 * the containing Tile Entity, as not all IEnergyHandlers are
 	 * guaranteed to have it.
-	 * 
+	 *
 	 * @param energy
 	 */
 	public void setEnergy(double energy)
@@ -137,7 +137,7 @@ public class EnergyStorageHandler
 	 * This function is included to allow the containing tile to directly and efficiently modify the
 	 * energy contained in the EnergyStorage. Do not rely on this
 	 * externally, as not all IEnergyHandlers are guaranteed to have it.
-	 * 
+	 *
 	 * @param energy
 	 */
 	public void modifyEnergyStored(double energy)
