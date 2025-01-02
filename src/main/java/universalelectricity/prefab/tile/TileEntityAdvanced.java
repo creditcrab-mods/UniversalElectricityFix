@@ -20,6 +20,8 @@ public abstract class TileEntityAdvanced extends TileEntity {
       ++this.ticks;
    }
 
+    public void onNeighborChange(){}
+
    public void initiate() {}
 
    @Override

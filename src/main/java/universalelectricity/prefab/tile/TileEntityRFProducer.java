@@ -13,6 +13,7 @@ public class TileEntityRFProducer extends TileEntityDisableable implements IEner
         super();
         energyStorage = new EnergyStorage(capacity,send,receive);
     }
+
     @Override
     public boolean canConnectEnergy(ForgeDirection from) {
         return true;
@@ -29,6 +30,11 @@ public class TileEntityRFProducer extends TileEntityDisableable implements IEner
     @Override
     public int getEnergyStored(ForgeDirection from) {
         return energyStorage.getEnergyStored();
+    }
+
+    public void setEnergyStored(int energy){
+        energyStorage.setEnergyStored(energy);
+        markDirty();
     }
 
     @Override

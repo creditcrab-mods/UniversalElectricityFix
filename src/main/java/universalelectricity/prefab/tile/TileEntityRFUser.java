@@ -40,6 +40,13 @@ public class TileEntityRFUser extends TileEntityDisableable implements IEnergyRe
         return true;
     }
 
+    public void setEnergyStored(int energy){
+        energyStorage.setEnergyStored(energy);
+        markDirty();
+    }
+
+
+
     @Override
     public void writeToNBT(final NBTTagCompound nbt){
         super.writeToNBT(nbt);
