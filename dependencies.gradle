@@ -42,5 +42,5 @@ dependencies {
     runtimeOnlyNonPublishable("curse.maven:thermal-dynamics-227443:2388756")
     runtimeOnlyNonPublishable("curse.maven:endercore-231868:4671288")
     runtimeOnlyNonPublishable("curse.maven:ender-io-64578:4671445")
-    runtimeOnlyNonPublishable files("libs/basiccomponents-2.0.1.jar")
+    runtimeOnlyNonPublishable files("libs/basiccomponents.jar")
 }

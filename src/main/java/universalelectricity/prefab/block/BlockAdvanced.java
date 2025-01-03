@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import universalelectricity.prefab.tile.TileEntityAdvanced;
 
 public abstract class BlockAdvanced extends BlockContainer {
 
@@ -96,7 +97,13 @@ public abstract class BlockAdvanced extends BlockContainer {
       return false;
    }
 
+    @Override
+    public void onNeighborBlockChange(World worldIn, int x, int y, int z, Block neighbor) {
+        ((TileEntityAdvanced)worldIn.getTileEntity(x,y,z)).onNeighborChange();
+    }
+
    public boolean onUseWrench(World world, int x, int y, int z, EntityPlayer entityPlayer, int side, float hitX, float hitY, float hitZ) {
+       ((TileEntityAdvanced)world.getTileEntity(x,y,z)).onNeighborChange();
       return false;
    }
 
