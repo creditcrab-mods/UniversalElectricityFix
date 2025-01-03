@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import universalelectricity.api.energy.RFDisplay;
 import universalelectricity.core.item.RFItemHelper;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public abstract class ItemRF extends Item implements IEnergyContainerItem {
 
     @Override
     public void addInformation(final ItemStack itemStack, final EntityPlayer par2EntityPlayer, final List par3List, final boolean par4) {
-        par3List.add(this.getEnergyStored(itemStack) + " RF");
+        par3List.add(RFDisplay.displayRF(this.getEnergyStored(itemStack)));
     }
 
     @Override
